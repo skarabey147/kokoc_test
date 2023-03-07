@@ -1,0 +1,40 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: mediumslateblue">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'test:index' %}">
+        <span style="color:white">KoKoC Group Tests</span>
+      </a>
+      {% if user.is_authenticated %}
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link link-light" href="">{{ user.username | title }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'test:done_tests' %}">Пройденные тесты</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="">Баланс: {{ user.balance }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'users:list' %}">Список пользователей</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'users:profile' %}">Профиль</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'users:logout' %}">Выйти</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'users:login' %}">Войти</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'users:signup' %}">Регистрация</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</header>

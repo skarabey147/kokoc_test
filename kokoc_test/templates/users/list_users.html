@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for user in users %}
+<div class="container py-5">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+          <button >
+                Пользователь:        {{ user }} <br/>
+                Баланс пользователя: {{ user.balance }}
+          </button>
+
+      </li>
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock content %}
